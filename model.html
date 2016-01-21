@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Weather</title>
+        <script language="JavaScript">
+        var num = 1
+        img = new Image ()
+        function slideshow() {
+            num += 1
+            if(num == 14) {
+                num = 1
+            }
+            img.src = "img/" + num + ".jpg";
+            document.mypic.src = eval("img.src")
+            timer = setTimeout('change_img()', 5000);
+        }
+        function change_img() {
+            window.clearInterval(timer);
+            slideshow();
+        }
+        </script>
+        <style type="text/css">
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body bgcolor="#000000">
+        <script language="JavaScript">
+        var i = 0; var path = new Array();
+
+        // LIST OF IMAGES
+        path[0] = "1.jpg";
+        path[1] = "2.jpg";
+        path[2] = "3.jpg";
+
+        function swapImage()
+        {
+            document.slide.src = "img/" + path[i];
+            if(i < path.length - 1) i++;
+            else i = 0;
+            setTimeout("swapImage()",5000);
+        }
+        window.onload=swapImage;
+        </script>
+
+
+        <img height="480" name="slide" src="img/1.jpg" width="400" />
+    </body>
+</html>
